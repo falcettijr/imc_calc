@@ -1,13 +1,14 @@
 import Button from "./Button";
+import './ImcTable.css'
 
 /* eslint-disable react/prop-types */
-const ImcTable = ({data}) => {
+const ImcTable = ({data, imc, info, infoClass}) => {
     return (
         <div id="result-container">
-            <p id="imc-number">Seu IMC:</p>
+            <p id="imc-number">Seu IMC: <span className="infoClass">{imc}</span></p>
             <p id="imc-info">Situação Atual:</p>
             <h3>Confira as classificações:</h3>
-            <div className="imc-table">
+            <div id="imc-table">
                 <div className="table-header">
                     <h4>IMC</h4>
                     <h4>Classificação</h4>
