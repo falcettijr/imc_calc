@@ -22,12 +22,21 @@ function App() {
         setImc(imcResult);
 
         data.forEach((item) => {
-            if (imcResult >= item.min ** imcResult <= item.max) {
+            if (imcResult >= item.min && imcResult <= item.max) {
                 setInfo(item.info);
                 setInfoClass(item.infoClass);
             }
         });
+        if(!info) return;
     };
+
+    const resetCalc = (e) => {
+        e.preventDefault();
+
+        setImc("");
+        setInfo("");
+        setInfoClass("");
+    }
 
     const [imc, setImc] = useState("");
     const [info, setInfo] = useState("");
@@ -43,6 +52,7 @@ function App() {
                     imc={imc}
                     info={info}
                     infoClass={infoClass}
+                    resetCalc={resetCalc}
                 />
             )}
         </div>
